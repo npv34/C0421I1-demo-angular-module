@@ -11,6 +11,7 @@ import {Router} from "@angular/router";
 export class LoginComponent implements OnInit {
 
   formLogin: FormGroup | undefined;
+  errMessage = '';
   constructor(private authService: AuthService,
               private fb: FormBuilder,
               private router: Router) { }
@@ -30,6 +31,8 @@ export class LoginComponent implements OnInit {
         this.router.navigate(['admin/users']).then(r => {
           console.log('success')
         })
+    }, errors => {
+      console.log(errors.error)
     })
   }
 
