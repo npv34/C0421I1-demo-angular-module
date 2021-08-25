@@ -1,1 +1,6 @@
-<p>login works!</p>
+<form *ngIf="formLogin" [formGroup]="formLogin" (ngSubmit)="submit()">
+  Email: <input type="email" formControlName="email">
+  Password: <input type="password" formControlName="password">
+  <button>Login</button>
+</form>
+<a routerLink="/register">Register</a>

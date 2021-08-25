@@ -1,10 +1,12 @@
-import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import {NgModule} from '@angular/core';
+import {RouterModule, Routes} from '@angular/router';
 import {MasterComponent} from "./components/layouts/master/master.component";
 import {UserListComponent} from "./components/users/user-list/user-list.component";
 import {UserAddComponent} from "./components/users/user-add/user-add.component";
 import {LoginComponent} from "./components/login/login.component";
 import {DashboardComponent} from "./components/dashboard/dashboard.component";
+import {AuthGuard} from "./auth.guard";
+import {RegisterComponent} from "./components/register/register.component";
 
 const routes: Routes = [
   {
@@ -24,11 +26,15 @@ const routes: Routes = [
         path: 'dashboard',
         component: DashboardComponent
       }
-    ]
+    ], canActivate: [AuthGuard]
   },
   {
     path: 'login',
     component: LoginComponent
+  },
+  {
+    path: 'register',
+    component: RegisterComponent
   }
 ];
 
@@ -36,4 +42,5 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {
+}
