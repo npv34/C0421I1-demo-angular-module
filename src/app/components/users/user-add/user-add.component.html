@@ -1,1 +1,14 @@
-<p>user-add works!</p>
+<form *ngIf="formUserAdd" [formGroup]="formUserAdd" (ngSubmit)="submit()">
+  name: <input type="text" formControlName="name">
+  email: <input type="email" formControlName="email">
+  password: <input type="password" formControlName="password">
+  password_confirmation: <input type="password" formControlName="password_confirmation">
+  <br>
+  Role: <select formControlName="role" id="">
+  <option *ngFor="let role of roles" value="{{ role.id}}">
+    {{ role.name }}
+  </option>
+</select>
+  <button>Submit</button>
+</form>
+

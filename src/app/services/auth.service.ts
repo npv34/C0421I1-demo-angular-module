@@ -11,7 +11,7 @@ export class AuthService {
   constructor(private http: HttpClient) { }
 
   login(data: any): Observable<any>{
-    return this.http.post(environment.url_api + 'auth/login', data);
+    return this.http.post(environment.url_api + 'login', data);
   }
 
   setHeader() {
@@ -28,7 +28,7 @@ export class AuthService {
   }
 
   register(data: any): Observable<any> {
-    return  this.http.post(environment.url_api + 'auth/register', data);
+    return  this.http.post(environment.url_api + 'register', data);
   }
 
 }
